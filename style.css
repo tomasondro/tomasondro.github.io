@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Research site styles, shared by every page.
+   Layout: a fixed Oxford-blue left panel (photo, name, university, GitHub, CV)
+   beside a white column of beige research frames; each frame links to a
+   topic page with the details.
+   ========================================================================== */
+:root{
+  /* Palette: change these three to recolour the whole site */
+  --oxford:#002147;
+  --beige:#E8DCC4;
+  --white:#FFFFFF;
+
+  /* Roles */
+  --bg:var(--white);
+  --frame:#F6F0E4;        /* beige frame fill */
+  --frame-line:#E4D8C0;   /* beige frame border */
+  --fg:#18212F;
+  --heading:var(--oxford);
+  --muted:#5A6476;
+  --accent:var(--oxford);
+  --line:#E7DFCF;
+  --rule:#C9B48C;
+
+  --side-bg:var(--oxford);
+  --side-fg:#F7F2E8;
+  --side-muted:#AEBACB;
+  --side-line:rgba(232,220,196,.22);
+  --side-accent:var(--beige);
+
+  /* Type */
+  --font-display:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --font-body:"Source Sans 3","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  --side-w:320px;
+  color-scheme:light;
+}
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto}
+[hidden]{display:none!important}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.side :focus-visible{outline-color:var(--side-accent)}
+.skip{position:absolute;left:12px;top:-64px;z-index:20;background:var(--bg);color:var(--accent);padding:8px 12px;border-radius:3px;font-weight:600}
+.skip:focus{top:12px}
+
+.label{font-family:var(--font-mono);font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- Left panel (fixed) ---------- */
+.side{position:fixed;top:0;bottom:0;left:0;width:var(--side-w);z-index:5;overflow-y:auto;background:var(--side-bg);color:var(--side-fg);scrollbar-width:thin;scrollbar-color:var(--side-line) transparent}
+.side-inner{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;text-align:center;padding-block:48px;padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:32px}
+.portrait{display:block;flex:none;width:180px;padding:5px;border-radius:50%;background:var(--side-accent);transition:transform .25s ease}
+.portrait:hover{transform:scale(1.02)}
+.portrait img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 30%;border-radius:50%}
+.who{display:flex;flex-direction:column;gap:8px;min-width:0}
+.name{font-family:var(--font-display);font-weight:600;font-size:2.25rem;line-height:1.05;color:var(--side-fg);text-decoration:none}
+a.name:hover{color:var(--side-accent)}
+.uni{font-size:1rem;line-height:1.45;color:var(--side-muted)}
+.side-links{display:flex;flex-direction:column;gap:10px;width:100%;max-width:220px;padding-top:26px;border-top:1px solid var(--side-line)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:3px;font-size:.9375rem;font-weight:600;line-height:1.2;text-decoration:none;transition:background-color .2s,color .2s}
+.btn svg{flex:none}
+.btn-line{border:1px solid var(--side-accent);color:var(--side-accent)}
+.btn-line:hover{background:var(--side-accent);color:var(--side-bg)}
+.btn-solid{border:1px solid var(--side-accent);background:var(--side-accent);color:var(--side-bg)}
+.btn-solid:hover{background:var(--side-fg);border-color:var(--side-fg)}
+
+/* ---------- Right column ---------- */
+.main{min-width:0;margin-left:var(--side-w);container-type:inline-size;padding-block:72px 40px;padding-left:clamp(28px,6vw,96px);padding-right:max(clamp(28px,6vw,96px),env(safe-area-inset-right,0px))}
+.main-inner{max-width:50rem;display:flex;flex-direction:column;gap:48px}
+
+.page-head,.detail-head{display:flex;flex-direction:column;gap:14px;max-width:62ch}
+.page-head h1,.detail-head h1{font-family:var(--font-display);font-weight:600;font-size:clamp(2.5rem,1.9rem + 2vw,3.5rem);line-height:1.05;letter-spacing:-.005em;color:var(--heading)}
+.intro,.lead{font-size:1.1875rem;line-height:1.6;color:var(--muted)}
+
+/* Research frames on the home page */
+.topics{display:flex;flex-direction:column;gap:32px}
+.topic{display:flex;flex-direction:column;gap:16px;padding:28px 28px 30px;background:var(--frame);border:1px solid var(--frame-line);border-radius:4px}
+.topic h2{font-family:var(--font-display);font-weight:600;font-size:clamp(1.75rem,1.45rem + 1vw,2.25rem);line-height:1.12;margin-top:-4px}
+.topic h2 a{color:var(--heading);text-decoration:none}
+.topic h2 a:hover{text-decoration:underline;text-decoration-color:var(--rule);text-decoration-thickness:2px;text-underline-offset:6px}
+.arrow{display:inline-block;margin-left:.3em;font-family:var(--font-body);font-weight:400;font-size:.72em;transition:transform .2s ease}
+.topic h2 a:hover .arrow{transform:translateX(4px)}
+.topic-img{display:block;overflow:hidden;border:1px solid var(--frame-line);border-radius:3px;background:var(--bg)}
+.topic-img img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s ease}
+.topic-img:hover img{transform:scale(1.02)}
+.topic-note{max-width:65ch}
+
+/* Topic pages */
+.back{align-self:flex-start;font-size:.9375rem;font-weight:600;text-decoration:none}
+.back:hover{text-decoration:underline}
+.hero-fig{margin:0;padding:14px;background:var(--frame);border:1px solid var(--frame-line);border-radius:4px}
+.hero-fig img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:2px}
+.hero-fig figcaption{margin-top:12px;font-size:.875rem;line-height:1.5;color:var(--muted)}
+.hero-fig figcaption strong{color:var(--fg)}
+.facts{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 36px;padding-block:4px}
+.facts dd{margin:4px 0 0;font-size:.9375rem;line-height:1.45}
+.prose{display:flex;flex-direction:column;gap:40px}
+.block{display:flex;flex-direction:column;gap:12px;max-width:65ch;padding-top:28px;border-top:1px solid var(--line)}
+.block h2{font-family:var(--font-display);font-weight:600;font-size:1.875rem;line-height:1.15;color:var(--heading)}
+.block ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px}
+.block li::marker{color:var(--rule)}
+.refs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.refs li{font-size:.9375rem;color:var(--muted)}
+.refs strong,.refs em{color:var(--fg)}
+.pager{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-top:28px;border-top:1px solid var(--line)}
+.pager a{display:flex;flex-direction:column;gap:6px;padding:16px 18px;background:var(--frame);border:1px solid var(--frame-line);border-radius:4px;text-decoration:none;min-width:0}
+.pager a:hover{border-color:var(--rule)}
+.pager .t{font-family:var(--font-display);font-weight:600;font-size:1.3rem;line-height:1.2;color:var(--heading)}
+.pager .next{grid-column:2;text-align:right}
+
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:20px;border-top:1px solid var(--line);font-size:.8125rem;color:var(--muted)}
+
+/* Narrow right column */
+@container (max-width:560px){
+  .topic{padding:20px 20px 22px}
+  .facts,.pager{grid-template-columns:minmax(0,1fr)}
+  .pager .next{grid-column:1}
+}
+
+/* ---------- Responsive ---------- */
+/* Tablets and narrow windows: the panel stays fixed, just slimmer */
+@media (min-width:640px) and (max-width:999px){
+  :root{--side-w:260px}
+  .side-inner{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:24px}
+  .portrait{width:148px}
+  .name{font-size:1.875rem}
+}
+/* Short screens: smaller photo so the panel fits */
+@media (min-width:640px) and (max-height:700px){
+  .portrait{width:124px}
+  .side-inner{gap:20px;padding-block:32px}
+}
+/* Phones: too narrow for two columns, so the panel becomes a header */
+@media (max-width:639px){
+  .side{position:static;width:auto;overflow:visible}
+  .side-inner{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;text-align:left;gap:16px 18px;padding-block:24px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  .portrait{width:88px;padding:4px}
+  .who{flex:1;gap:4px}
+  .name{font-size:1.75rem}
+  .side-links{flex-direction:row;max-width:none;padding-top:16px}
+  .side-links .btn{flex:1}
+  .main{margin-left:0;padding-block:40px 32px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  .main-inner{gap:36px}
+}
+@media (prefers-reduced-motion:reduce){
+  .portrait,.arrow,.topic-img img{transition:none}
+}

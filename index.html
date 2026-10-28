@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oxford Blue Research Site</title>
+<meta name="description" content="Research homepage of Your Name, Your University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ LEFT PANEL (the same on every page) ============ -->
+<aside class="side" aria-label="Profile">
+  <div class="side-inner">
+    <!-- Your photo: replace images/photo.jpg with your own (same file name). It is cropped to a circle. -->
+    <a class="portrait" href="index.html" aria-label="Home"><img src="images/photo.jpg" alt="Portrait of Your Name" width="800" height="800"></a>
+    <div class="who">
+      <a class="name" href="index.html">Your Name</a>
+<ul class="uni" aria-label="Affiliations">
+  <li>Mendel University in Brno</li>
+  <li>VSB - Technical University of Ostrava</li>
+</ul>
+    </div>
+    <div class="side-links">
+      <!-- Your GitHub: put your username in the link -->
+      <a class="btn btn-line" href="https://github.com/TOndro90" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <!-- Your CV: replace cv.pdf with your own (same file name) -->
+      <a class="btn btn-solid" href="cv.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 2v8M4.5 6.5 8 10l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Download CV</a>
+    </div>
+  </div>
+</aside>
+
+<!-- ============ RIGHT SIDE: your research ============ -->
+<main class="main" id="main">
+  <div class="main-inner">
+    <header class="page-head">
+      <h1>Research</h1>
+      <p class="intro">One or two sentences that tie your topics together. Select a topic to read more about it.</p>
+    </header>
+
+    <div class="topics">
+      <!-- Topic 1: edit the title, image (images/research-1.jpg) and note. Details live in research-1.html -->
+      <article class="topic">
+        <p class="label">Ongoing · since 2024</p>
+        <h2><a href="research-1.html">Title of your main research topic<span class="arrow" aria-hidden="true">→</span></a></h2>
+        <a class="topic-img" href="research-1.html" tabindex="-1" aria-hidden="true"><img src="images/research-1.jpg" alt="" width="1600" height="900"></a>
+        <p class="topic-note">Describe the topic in three or four sentences. Say what question you ask, how you study it and what you have found so far. Keep it readable for someone outside your field, since the details go on the topic page.</p>
+      </article>
+
+      <!-- Topic 2: edit the title, image (images/research-2.jpg) and note. Details live in research-2.html -->
+      <article class="topic">
+        <p class="label">PhD project · 2020–2024</p>
+        <h2><a href="research-2.html">Title of your second research topic<span class="arrow" aria-hidden="true">→</span></a></h2>
+        <a class="topic-img" href="research-2.html" tabindex="-1" aria-hidden="true"><img src="images/research-2.jpg" alt="" width="1600" height="900"></a>
+        <p class="topic-note">Use this frame for an earlier or parallel line of work. One image and a short note are enough here. Visitors who want the methods and papers will open the topic page.</p>
+      </article>
+
+      <!-- Topic 3: edit the title, image (images/research-3.jpg) and note. Details live in research-3.html -->
+      <article class="topic">
+        <p class="label">New direction · since 2026</p>
+        <h2><a href="research-3.html">Title of a new research direction<span class="arrow" aria-hidden="true">→</span></a></h2>
+        <a class="topic-img" href="research-3.html" tabindex="-1" aria-hidden="true"><img src="images/research-3.jpg" alt="" width="1600" height="900"></a>
+        <p class="topic-note">A newer idea, a side project or a tool you built, such as software or a dataset. Mention who you work with and what you hope to find.</p>
+      </article>
+    </div>
+
+    <footer class="foot">
+      <span>© 2026 Your Name</span>
+      <span>Last updated 28 October 2026</span>
+    </footer>
+  </div>
+</main>
+</body>
+</html>
